@@ -1,0 +1,8 @@
+Debug/
+Demo/bin/
+Demo/obj/
+Release/
+.vs/eos-format/v14/.suo
+eos-format.VC.VC.opendb
+eos-format.VC.db
+eos-format.vcxproj.user

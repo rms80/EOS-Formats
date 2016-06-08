@@ -2,7 +2,7 @@
 
 
 //------------------------------------------------------------//
-int strIndexOfLast(const char * src, char findChar, int maxScanCount)
+static int strIndexOfLast(const char * src, char findChar, int maxScanCount)
 {
 	if (src == NULL) return -1;
 
@@ -24,7 +24,7 @@ int strIndexOfLast(const char * src, char findChar, int maxScanCount)
 //---------------------------------------------------//
 //-- library interface--//
 //---------------------------------------------------//
-int sf_initLib()
+jf_handle sf_initLib()
 {
 
 	tyLibraryInterface *libInt = new tyLibraryInterface;
@@ -33,11 +33,11 @@ int sf_initLib()
 	libInt->sliFile = NULL;
 	libInt->sliceData = new clSliceData();
 
-	return (int) libInt;
+	return (jf_handle) libInt;
 }
 
 //---------------------------------------------------//
-void sf_freeLib(int sliI)
+void sf_freeLib(jf_handle sliI)
 {
 	if (sliI != NULL)
 	{
@@ -55,7 +55,7 @@ void sf_freeLib(int sliI)
 }
 
 //---------------------------------------------------//
-int sf_readFromFile(int sliI, char * fileName)
+int sf_readFromFile(jf_handle sliI, char * fileName)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -89,7 +89,7 @@ int sf_readFromFile(int sliI, char * fileName)
 }
 
 //---------------------------------------------------//
-int sf_getLayerCount(int sliI, int partIndex)
+int sf_getLayerCount(jf_handle sliI, int partIndex)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -101,7 +101,7 @@ int sf_getLayerCount(int sliI, int partIndex)
 
 
 //---------------------------------------------------//
-float sf_getMaxLayerPos(int sliI, int partIndex)
+float sf_getMaxLayerPos(jf_handle sliI, int partIndex)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -113,7 +113,7 @@ float sf_getMaxLayerPos(int sliI, int partIndex)
 
 
 //---------------------------------------------------//
-float sf_getLayerThickness(int sliI)
+float sf_getLayerThickness(jf_handle sliI)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -125,7 +125,7 @@ float sf_getLayerThickness(int sliI)
 
 
 //---------------------------------------------------//
-float sf_getLayerPos(int sliI, int partIndex, int layerIndex)
+float sf_getLayerPos(jf_handle sliI, int partIndex, int layerIndex)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -137,7 +137,7 @@ float sf_getLayerPos(int sliI, int partIndex, int layerIndex)
 
 
 //---------------------------------------------------//
-int sf_getLayerIndexByPos(int sliI, int partIndex, float layerPos)
+int sf_getLayerIndexByPos(jf_handle sliI, int partIndex, float layerPos)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -149,7 +149,7 @@ int sf_getLayerIndexByPos(int sliI, int partIndex, float layerPos)
 
 
 //---------------------------------------------------//
-char * sf_getPartName(int sliI, int partIndex)
+char * sf_getPartName(jf_handle sliI, int partIndex)
 {
 	if (sliI == NULL) return NULL;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -160,7 +160,7 @@ char * sf_getPartName(int sliI, int partIndex)
 }
 
 //---------------------------------------------------//
-char * sf_getPartProperty(int sliI, int partIndex)
+char * sf_getPartProperty(jf_handle sliI, int partIndex)
 {
 	if (sliI == NULL) return NULL;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -172,7 +172,7 @@ char * sf_getPartProperty(int sliI, int partIndex)
 
 
 //---------------------------------------------------//
-int sf_readSliceData(int sliI, int partIndex, int layerIndex)
+int sf_readSliceData(jf_handle sliI, int partIndex, int layerIndex)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -185,7 +185,7 @@ int sf_readSliceData(int sliI, int partIndex, int layerIndex)
 
 
 //---------------------------------------------------//
-int sf_addRasterObject(int sliI, int * outFilledPicture, int * outLinePicture, int partIndex, clSliceData::tyMatrix matrix, int color, int width, int height)
+int sf_addRasterObject(jf_handle sliI, int * outFilledPicture, int * outLinePicture, int partIndex, clSliceData::tyMatrix matrix, int color, int width, int height)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;
@@ -197,7 +197,7 @@ int sf_addRasterObject(int sliI, int * outFilledPicture, int * outLinePicture, i
 }
 
 //---------------------------------------------------//
-int sf_getPartCount(int sliI)
+int sf_getPartCount(jf_handle sliI)
 {
 	if (sliI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) sliI;

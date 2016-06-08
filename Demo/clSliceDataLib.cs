@@ -55,55 +55,55 @@ namespace Demo
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_initLib();
+        private static extern UInt64 sf_initLib();
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_getPartCount(int sliI);
+        private static extern Int32 sf_getPartCount(UInt64 sliI);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern float sf_getLayerThickness(int sliI);
+        private static extern float sf_getLayerThickness(UInt64 sliI);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_getLayerCount(int sliI, int partIndex);
+        private static extern Int32 sf_getLayerCount(UInt64 sliI, int partIndex);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern float sf_getMaxLayerPos(int sliI, int partIndex);
+        private static extern float sf_getMaxLayerPos(UInt64 sliI, int partIndex);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern float sf_getLayerPos(int sliI, int partIndex, int layerIndex);
+        private static extern float sf_getLayerPos(UInt64 sliI, int partIndex, int layerIndex);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern int sf_getLayerIndexByPos(int sliI, int partIndex, float layerPos);
+        private static extern int sf_getLayerIndexByPos(UInt64 sliI, int partIndex, float layerPos);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_freeLib(int sliI);
+        private static extern Int32 sf_freeLib(UInt64 sliI);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_addRasterObject(int sliI, int [,] outFilledPicture, int [,] outLinePicture, int partIndex, clMatrix3x2.ty_Matrix matrix, int color, int width, int height);
+        private static extern Int32 sf_addRasterObject(UInt64 sliI, int [,] outFilledPicture, int [,] outLinePicture, int partIndex, clMatrix3x2.ty_Matrix matrix, int color, int width, int height);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_readFromFile(int sliI, byte [] fileName);
+        private static extern Int32 sf_readFromFile(UInt64 sliI, byte [] fileName);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 sf_readSliceData(int sliI, int partIndex, int LayerIndex);
+        private static extern Int32 sf_readSliceData(UInt64 sliI, int partIndex, int LayerIndex);
         
         
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr sf_getPartName(int sliI, int partIndex);
+        private static extern IntPtr sf_getPartName(UInt64 sliI, int partIndex);
 
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr sf_getPartProperty(int sliI, int partIndex);
+        private static extern IntPtr sf_getPartProperty(UInt64 sliI, int partIndex);
         
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
@@ -114,7 +114,7 @@ namespace Demo
         private static extern IntPtr sf_getLastDebug();
 
 
-        private int m_SLI_lib = 0;
+        private UInt64 m_SLI_lib = 0;
 
 
 

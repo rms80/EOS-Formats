@@ -52,8 +52,8 @@ void clError::AddDebug(const char * debugString, ...)
 //-------------------------------------//
 char * clError::formatError(char * dest, int destSize, const char* ErrorType, const char* className, const char* outputString, va_list args)
 {
-	int startsize = strlen(dest);
-	int sizeofprefix = strlen(ErrorType) + strlen(className) + 20;
+	int startsize = (int)strlen(dest);
+	int sizeofprefix = (int)strlen(ErrorType) + (int)strlen(className) + 20;
 
 	if ((startsize + sizeofprefix) >= destSize)
 	{
@@ -73,7 +73,7 @@ char * clError::formatError(char * dest, int destSize, const char* ErrorType, co
 	}
 
 	sprintf(&dest[startsize], "%s: [%s] ", ErrorType, className);
-	int size = strlen(&dest[startsize]) + startsize;
+	int size = (int)strlen(&dest[startsize]) + startsize;
 
 	vsnprintf(&dest[size], destSize - size, outputString, args);
 

@@ -151,7 +151,7 @@ char * clJobFile::readFromBuffer(const char * buffer, int bufferLen)
 	*pOutBuffer++ = '\r';  //- close string
 	*pOutBuffer++ = '\n';  //- close string
 
-	m_filebuffer_used_len = (pOutBuffer - m_filebuffer);
+	m_filebuffer_used_len = (int)(pOutBuffer - m_filebuffer);
 
 	*pOutBuffer = '\0';  //- close string
 

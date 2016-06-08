@@ -15,18 +15,22 @@ struct tyLibraryInterface
 //---- DLL EXPORTS ------//
 #define DllExport extern "C" __declspec(dllexport)
 
-DllExport int    jf_initLib();
-DllExport void   jf_freeLib(int jobI);
-DllExport int    jf_readFromFile(int jobI, char * fileName);
-DllExport int    jf_printXML(int jobI);
-DllExport char * jf_getKeyName(int jobI, int keyIndex);
-DllExport int    jf_getFirstKeyChild(int jobI, int keyIndex);
-DllExport int    jf_getNextKeyChild(int jobI, int keyIndex);
-DllExport int    jf_getFirstProperty(int jobI, int propertyIndex);
-DllExport int    jf_getNextProperty(int jobI, int propertyIndex);
-DllExport char * jf_getPropertyName(int jobI, int propertyIndex);
-DllExport char * jf_getPropertyValue(int jobI, int propertyIndex);
-DllExport char * jf_getPropertyComment(int jobI, int propertyIndex);
+// store handle in 64-bit int, so that 32 and 64-bit versions 
+// have same interface (avoids mess in C# wrapper)
+typedef unsigned long long int jf_handle;
+
+DllExport jf_handle jf_initLib();
+DllExport void	 jf_freeLib(jf_handle jobI);
+DllExport int	 jf_readFromFile(jf_handle jobI, char * fileName);
+DllExport int	 jf_printXML(jf_handle jobI);
+DllExport char * jf_getKeyName(jf_handle jobI, int keyIndex);
+DllExport int	 jf_getFirstKeyChild(jf_handle jobI, int keyIndex);
+DllExport int	 jf_getNextKeyChild(jf_handle jobI, int keyIndex);
+DllExport int	 jf_getFirstProperty(jf_handle jobI, int propertyIndex);
+DllExport int	 jf_getNextProperty(jf_handle jobI, int propertyIndex);
+DllExport char * jf_getPropertyName(jf_handle jobI, int propertyIndex);
+DllExport char * jf_getPropertyValue(jf_handle jobI, int propertyIndex);
+DllExport char * jf_getPropertyComment(jf_handle jobI, int propertyIndex);
 
 
 #endif

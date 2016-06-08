@@ -9,43 +9,43 @@ namespace Demo
         private const string LIB_DLL_NAME = "eos-format.dll";
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_initLib();
+        private static extern UInt64 jf_initLib();
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern void jf_freeLib(int jobI);
+        private static extern void jf_freeLib(UInt64 jobI);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_readFromFile(int jobI, byte []  fileName);
+        private static extern Int32 jf_readFromFile(UInt64 jobI, byte []  fileName);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_printXML(int jobI);
+        private static extern Int32 jf_printXML(UInt64 jobI);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr jf_getKeyName(int jobI, int keyIndex);
+        private static extern IntPtr jf_getKeyName(UInt64 jobI, int keyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_getFirstKeyChild(int jobI, int keyIndex);
+        private static extern Int32 jf_getFirstKeyChild(UInt64 jobI, int keyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_getNextKeyChild(int jobI, int keyIndex);
+        private static extern Int32 jf_getNextKeyChild(UInt64 jobI, int keyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_getFirstProperty(int jobI, int propertyIndex);
+        private static extern Int32 jf_getFirstProperty(UInt64 jobI, int propertyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern Int32 jf_getNextProperty(int jobI, int propertyIndex);
+        private static extern Int32 jf_getNextProperty(UInt64 jobI, int propertyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr jf_getPropertyName(int jobI, int propertyIndex);
+        private static extern IntPtr jf_getPropertyName(UInt64 jobI, int propertyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr jf_getPropertyValue(int jobI, int propertyIndex);
+        private static extern IntPtr jf_getPropertyValue(UInt64 jobI, int propertyIndex);
 
         [DllImport(LIB_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr jf_getPropertyComment(int jobI, int propertyIndex);
+        private static extern IntPtr jf_getPropertyComment(UInt64 jobI, int propertyIndex);
 
 
-        private int m_lib = 0;
+        private UInt64 m_lib = 0;
 
         //---------------------------------------------------//
         public clJobFileLib()

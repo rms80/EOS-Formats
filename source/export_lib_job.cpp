@@ -3,7 +3,7 @@
 //---------------------------------------------------//
 //-- library interface--//
 //---------------------------------------------------//
-int jf_initLib()
+jf_handle jf_initLib()
 {
 
 	tyLibraryInterface *libInt = new tyLibraryInterface;
@@ -11,11 +11,11 @@ int jf_initLib()
 	libInt->magic = MAGIC_JOB;
 	libInt->jobFile = new clJobFileInterpreter();
 
-	return (int) libInt;
+	return (jf_handle)libInt;
 }
 
 //---------------------------------------------------//
-void jf_freeLib(int jobI)
+void jf_freeLib(jf_handle jobI)
 {
 	if (jobI != NULL)
 	{
@@ -31,7 +31,7 @@ void jf_freeLib(int jobI)
 }
 
 //---------------------------------------------------//
-int jf_readFromFile(int jobI, char * fileName)
+int jf_readFromFile(jf_handle jobI, char * fileName)
 {
 	if (jobI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -45,7 +45,7 @@ int jf_readFromFile(int jobI, char * fileName)
 }
 
 //---------------------------------------------------//
-int jf_printXML(int jobI)
+int jf_printXML(jf_handle jobI)
 {
 	if (jobI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -58,7 +58,7 @@ int jf_printXML(int jobI)
 
 
 //---------------------------------------------------//
-char * jf_getKeyName(int jobI, int keyIndex)
+char * jf_getKeyName(jf_handle jobI, int keyIndex)
 {
 	if (jobI == NULL) return NULL;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -69,7 +69,7 @@ char * jf_getKeyName(int jobI, int keyIndex)
 }
 
 //---------------------------------------------------//
-int jf_getFirstKeyChild(int jobI, int keyIndex)
+int jf_getFirstKeyChild(jf_handle jobI, int keyIndex)
 {
 	if (jobI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -80,7 +80,7 @@ int jf_getFirstKeyChild(int jobI, int keyIndex)
 }
 
 //---------------------------------------------------//
-int jf_getNextKeyChild(int jobI, int keyIndex)
+int jf_getNextKeyChild(jf_handle jobI, int keyIndex)
 {
 	if (jobI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -91,7 +91,7 @@ int jf_getNextKeyChild(int jobI, int keyIndex)
 }
 
 //---------------------------------------------------//
-int jf_getFirstProperty(int jobI, int propertyIndex)
+int jf_getFirstProperty(jf_handle jobI, int propertyIndex)
 {
 	if (jobI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -102,7 +102,7 @@ int jf_getFirstProperty(int jobI, int propertyIndex)
 }
 
 //---------------------------------------------------//
-int jf_getNextProperty(int jobI, int propertyIndex)
+int jf_getNextProperty(jf_handle jobI, int propertyIndex)
 {
 	if (jobI == NULL) return -1;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -113,7 +113,7 @@ int jf_getNextProperty(int jobI, int propertyIndex)
 }
 
 //---------------------------------------------------//
-char * jf_getPropertyName(int jobI, int propertyIndex)
+char * jf_getPropertyName(jf_handle jobI, int propertyIndex)
 {
 	if (jobI == NULL) return NULL;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -124,7 +124,7 @@ char * jf_getPropertyName(int jobI, int propertyIndex)
 }
 
 //---------------------------------------------------//
-char * jf_getPropertyValue(int jobI, int propertyIndex)
+char * jf_getPropertyValue(jf_handle jobI, int propertyIndex)
 {
 	if (jobI == NULL) return NULL;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
@@ -135,7 +135,7 @@ char * jf_getPropertyValue(int jobI, int propertyIndex)
 }
 
 //---------------------------------------------------//
-char * jf_getPropertyComment(int jobI, int propertyIndex)
+char * jf_getPropertyComment(jf_handle jobI, int propertyIndex)
 {
 	if (jobI == NULL) return NULL;
 	tyLibraryInterface * libInt = (tyLibraryInterface *) jobI;
